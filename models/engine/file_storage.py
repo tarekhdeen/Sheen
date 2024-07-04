@@ -36,3 +36,24 @@ class FileStorage:
                 FileStorage.__objects = obj_dict
         else:
             return
+        
+    def classes(self):
+        """Class to manage serialization and deserialization of all"""
+
+        from models.base_model import BaseModel
+        from models.base_model import User
+        from models.base_model import Appointment
+        from models.base_model import Patient
+        return {"BaseModel": BaseModel, "User": User,
+                "Appointment": Appointment, "Patient": Patient}
+    
+    def attributes(self):
+        """Class converts the object's attributes to a dictionary"""
+
+        return {"BaseModel": {"id": str, "created_at": datetime.datetime,
+                            "updated_at": datetime.datetime},
+                "User": {"email": str, "password": str,
+                        "first_name": str, "last_name": str},
+                "Appointment": {"doctor": str},
+                "Patient": {"name": str}
+                }
