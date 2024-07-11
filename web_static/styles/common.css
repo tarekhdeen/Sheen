@@ -1,0 +1,96 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* Navbar Styles */
+.navbar {
+    margin-bottom: 0;
+}
+
+.navbar-brand img {
+    max-height: 40px;
+    width: auto;
+}
+
+.nav-link {
+    font-size: 16px;
+    color: #333 !important;
+}
+
+.nav-link.btn-primary {
+    margin-left: 10px;
+}
+
+/* Header Styles */
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+header p.lead {
+    font-size: 1.25rem;
+}
+
+/* Main Content Styles */
+main {
+    padding: 60px 0;
+}
+
+main h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+main p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Latest News Section */
+main .list-unstyled li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+main .list-unstyled li a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+main .list-unstyled li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #e7e7e7;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
