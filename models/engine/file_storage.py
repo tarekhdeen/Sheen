@@ -41,9 +41,12 @@ class FileStorage:
         """Class to manage serialization and deserialization of all"""
 
         from models.base_model import BaseModel
-        from models.base_model import User
-        from models.base_model import Appointment
-        from models.base_model import Patient
+        from models.user import User
+        from models.appointment import Appointment
+        from models.doctor import Doctor
+        from models.clinic import Clinic
+        from models.patient import Patient
+        from models.procedure import Procedure
         return {"BaseModel": BaseModel, "User": User,
                 "Appointment": Appointment, "Patient": Patient}
     
@@ -53,7 +56,14 @@ class FileStorage:
         return {"BaseModel": {"id": str, "created_at": datetime.datetime,
                             "updated_at": datetime.datetime},
                 "User": {"email": str, "password": str,
-                        "first_name": str, "last_name": str},
-                "Appointment": {"doctor": str},
-                "Patient": {"name": str}
+                        "first_name": str, "last_name": str, "role": str},
+                "Appointment": {"patient_id": str, "doctor_id": str, "date": datetime.datetime,
+                                "time": str, "procedure": str, "status": str},
+                "Doctor": {"first_name": str, "last_name": str, "specilaization": str,
+                        "contact_info": str, "clinic_id": str},
+                "Clinic": {"name": str, "address": str,
+                        "phone_number": str, "email": str},
+                "Patient": {"name": str, "age": str, "gender": str,
+                            "contact_info": str, "medical_history": str},
+                "Procedure": {"name": str, "descreption": str, "cost": float}
                 }

@@ -8,3 +8,7 @@ class Patient(BaseModel):
     """Patient class inherits from BaseModel"""
 
     name = ""
+    age = ""
+    gender = ""
+    contact_info = ""
+    medical_history = ""

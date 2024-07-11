@@ -6,3 +6,10 @@ from models.base_model import BaseModel
 
 class Appointment(BaseModel):
     """Appointment class inherits from BaseModel"""
+
+    patient_id = ""
+    doctor_id = ""
+    date = ""
+    time = ""
+    procedure = ""
+    status = ""
