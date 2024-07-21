@@ -1,4 +1,6 @@
+#!/usr/bin/python3
 """Module for creating a unique FileStorage instance"""
-from models.engine.file_storage import FileStorage
-storage = FileStorage()
+from models.engine.db_storage import DBStorage
+
+storage = DBStorage()
 storage.reload()

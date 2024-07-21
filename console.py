@@ -4,8 +4,15 @@
 import cmd
 import json
 import re
-from models import storage
-from models.base_model import BaseModel
+import app.models
+from app.models import storage
+from app.models.base_model import BaseModel
+from app.models.appointment import Appointment
+from app.models.clinic import Clinic
+from app.models.doctor import Doctor
+from app.models.patient import Patient
+from app.models.procedure import Procedure
+from app.models.user import User
 
 
 class SHEENCommand(cmd.Cmd):
@@ -25,17 +32,31 @@ class SHEENCommand(cmd.Cmd):
         """an empty line + ENTER shouldn’t execute anything"""
         pass
     
-    def do_create(self, args):
+    def do_create(self, arg):
         """Creates a new instance of BaseModel, saves it and prints the id"""
-        if not args:
+        args = arg.split()
+        if len(args) < 1:
             print("** class name missing **")
             return
+        
+        class_name = args[0]
+        class_attrs = {}
+        
+        for attr in args[1:]:
+            key_value = attr.split("=")
+            if len(key_value) == 2:
+                key, value = key_value
+                class_attrs[key] = value.strip('"')
+        
         try:
-            new_instance = eval(args)()
-            new_instance.save()
-            print(new_instance.id)
-        except NameError:
+            cls = globals()[class_name]
+        except KeyError:
             print("** class doesn't exist **")
+            return
+        
+        new_instance = cls(**class_attrs)
+        new_instance.save()
+        print(new_instance.id)
 
     def do_show(self, args):
         """Prints the string representation of an instance based on the class name and id"""

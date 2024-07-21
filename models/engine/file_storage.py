@@ -53,14 +53,14 @@ class FileStorage:
     def attributes(self):
         """Class converts the object's attributes to a dictionary"""
 
-        return {"BaseModel": {"id": str, "created_at": datetime.datetime,
+        return {"BaseModel": {"id": int, "created_at": datetime.datetime,
                             "updated_at": datetime.datetime},
                 "User": {"email": str, "password": str,
                         "first_name": str, "last_name": str, "role": str},
-                "Appointment": {"patient_id": str, "doctor_id": str, "date": datetime.datetime,
+                "Appointment": {"date": datetime.datetime,
                                 "time": str, "procedure": str, "status": str},
                 "Doctor": {"first_name": str, "last_name": str, "specilaization": str,
-                        "contact_info": str, "clinic_id": str},
+                        "contact_info": str, "clinic_id": int},
                 "Clinic": {"name": str, "address": str,
                         "phone_number": str, "email": str},
                 "Patient": {"name": str, "age": str, "gender": str,
